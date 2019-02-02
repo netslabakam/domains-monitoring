@@ -1,0 +1,39 @@
+all:
+  email:
+    send: false
+    sender: 'mur@atmapro.ru'
+    dev: 'mr@atmadev.ru'
+    copy: 'mr@atmadev.ru'
+  www_title: ''
+  arm_title: ''
+  host: ''
+  doAuth:
+    algorithm_callable: sha1
+    check_password_callable: false
+    remember_cookie_name: doRemember
+    remember_cookie_expiration_age: 31536000
+    activation: true
+    reset_password_url: '@homepage'
+    signin_url: '@homepage'
+    signout_url: '@homepage'
+    routes_register: true
+  doAuth_register:
+    forward: ~
+    redirect_path: '@homepage'
+    signin: true
+  doAuth_email:
+    activation: true
+    registration: true
+    from: fh@atmadev.ru
+    module: baseAuth
+  sf_captchagd:
+    image_width: 150
+    image_height: 45
+    chars: "123456789"
+    length: 5
+    font_size: 18
+    force_new_captcha: true
+    font_color: ["ACACAC"]
+    fonts: ["planet_benson/Planetbe.ttf"] 
+    background_color: FFFFFF
+    border_color: FFFFFF

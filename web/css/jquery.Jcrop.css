@@ -1,0 +1,359 @@
+/* jquery.Jcrop.css v0.9.12 - MIT License */
+/*
+  The outer-most container in a typical Jcrop instance
+  If you are having difficulty with formatting related to styles
+  on a parent element, place any fixes here or in a like selector
+
+  You can also style this element if you want to add a border, etc
+  A better method for styling can be seen below with .jcrop-light
+  (Add a class to the holder and style elements for that extended class)
+*/
+.jcrop-holder {
+  direction: ltr;
+  text-align: left;
+}
+/* Selection Border */
+.jcrop-vline,
+.jcrop-hline {
+  background: #ffffff url("Jcrop.gif");
+  font-size: 0;
+  position: absolute;
+}
+.jcrop-vline {
+  height: 100%;
+  width: 1px !important;
+}
+.jcrop-vline.right {
+  right: 0;
+}
+.jcrop-hline {
+  height: 1px !important;
+  width: 100%;
+}
+.jcrop-hline.bottom {
+  bottom: 0;
+}
+/* Invisible click targets */
+.jcrop-tracker {
+  height: 100%;
+  width: 100%;
+  /* "turn off" link highlight */
+  -webkit-tap-highlight-color: transparent;
+  /* disable callout, image save panel */
+  -webkit-touch-callout: none;
+  /* disable cut copy paste */
+  -webkit-user-select: none;
+}
+/* Selection Handles */
+.jcrop-handle {
+  background-color: #333333;
+  border: 1px #eeeeee solid;
+  width: 7px;
+  height: 7px;
+  font-size: 1px;
+}
+.jcrop-handle.ord-n {
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 0;
+}
+.jcrop-handle.ord-s {
+  bottom: 0;
+  left: 50%;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+.jcrop-handle.ord-e {
+  margin-right: -4px;
+  margin-top: -4px;
+  right: 0;
+  top: 50%;
+}
+.jcrop-handle.ord-w {
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 50%;
+}
+.jcrop-handle.ord-nw {
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 0;
+}
+.jcrop-handle.ord-ne {
+  margin-right: -4px;
+  margin-top: -4px;
+  right: 0;
+  top: 0;
+}
+.jcrop-handle.ord-se {
+  bottom: 0;
+  margin-bottom: -4px;
+  margin-right: -4px;
+  right: 0;
+}
+.jcrop-handle.ord-sw {
+  bottom: 0;
+  left: 0;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+/* Dragbars */
+.jcrop-dragbar.ord-n,
+.jcrop-dragbar.ord-s {
+  height: 7px;
+  width: 100%;
+}
+.jcrop-dragbar.ord-e,
+.jcrop-dragbar.ord-w {
+  height: 100%;
+  width: 7px;
+}
+.jcrop-dragbar.ord-n {
+  margin-top: -4px;
+}
+.jcrop-dragbar.ord-s {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+.jcrop-dragbar.ord-e {
+  margin-right: -4px;
+  right: 0;
+}
+.jcrop-dragbar.ord-w {
+  margin-left: -4px;
+}
+/* The "jcrop-light" class/extension */
+.jcrop-light .jcrop-vline,
+.jcrop-light .jcrop-hline {
+  background: #ffffff;
+  filter: alpha(opacity=70) !important;
+  opacity: .70!important;
+}
+.jcrop-light .jcrop-handle {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #000000;
+  border-color: #ffffff;
+  border-radius: 3px;
+}
+/* The "jcrop-dark" class/extension */
+.jcrop-dark .jcrop-vline,
+.jcrop-dark .jcrop-hline {
+  background: #000000;
+  filter: alpha(opacity=70) !important;
+  opacity: 0.7 !important;
+}
+.jcrop-dark .jcrop-handle {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #ffffff;
+  border-color: #000000;
+  border-radius: 3px;
+}
+/* Simple macro to turn off the antlines */
+.solid-line .jcrop-vline,
+.solid-line .jcrop-hline {
+  background: #ffffff;
+}
+/* Fix for twitter bootstrap et al. */
+.jcrop-holder img,
+img.jcrop-preview {
+  max-width: none;
+}
+
+/*use_style*/
+
+
+.jcrop_menu{
+  position: absolute;
+  top: 0;
+  right: 40px;
+  color: #fff;
+}
+.jcrop_menu__title{
+  font-size: 16px;
+  font-weight: bold;
+}
+.jcrop_menu__list{
+  padding: 0;
+}
+.jcrop_menu__list__item{
+  position: relative;
+  list-style-type: none;
+  text-align: left;
+  margin: 12px 0;
+  padding-left: 26px;
+}
+.jcrop_menu__list__item:before{
+  content:'';
+  display: none;
+  background: url('/i/jcrop_tick24.png') no-repeat 50% 50%;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 1px;
+  background-size:cover;
+}
+.jcrop_menu__list__item_complete{
+  padding-left: 0;
+}
+.jcrop_menu__list__item_complete:before{
+  display: inline-block;
+}
+.jcrop_menu__list__item__body{
+  display: inline-block;
+}
+.jcrop_menu__list__item_active .jcrop_menu__list__item__body{
+  border-bottom: 1px dashed rgba(255,255,255,0.5);
+}
+.jcrop_curtain {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  vertical-align: middle;
+  text-align: center;
+  z-index: 100000;
+  overflow-y: scroll;
+  transition: opacity 0.1s;
+}
+.jcrop_curtain_opacity{
+  display: block;
+  opacity: 0;
+}
+.jcrop_curtain_show{
+  opacity: 1 !important;
+}
+.jcrop_curtain__long_item{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.jcrop_curtain__item{
+  display: inline-block;
+  position: relative;
+}
+.jcrop_curtain__item .custom_input_radio{
+  display: none;
+}
+.jcrop_close{
+  width: 40px !important;
+  height: 40px !important;
+  top: 40px !important;
+  right: 40px;
+  color: #fff;
+  opacity: 0.7;
+}
+.jcrop_close:hover{
+  opacity: 1;
+}
+.jcrop_apply{
+  right: -50px;
+  opacity: 0.8;
+  cursor: default !important;
+}
+.jcrop_apply:hover{
+  opacity:1;
+}
+.jcrop_apply__ready{
+  background: #64B656 url('/i/jcrop_tick24.png') no-repeat 50% 50%;
+  cursor: pointer;
+}
+.jcrop_apply__wait{
+  display: none;
+  cursor: default;
+}
+.jcrop_apply__ready,
+.jcrop_apply__wait,
+.jcrop_apply__complete{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left:0;
+}
+.jcrop_apply__wait:after{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  background: url('/i/preloader.GIF') no-repeat 50% 50%;
+  background-size:cover;
+}
+.jcrop_apply__wait{
+  background: #fff;
+}
+.jcrop_apply__complete{
+  display: none;
+  background: #00BCD4 url('/i/jcrop_tick24.png') no-repeat 50% 50%;
+}
+.jcrop_apply__complete:after{
+  content: 'Изображения загружены';
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  line-height: 14px;
+  text-align: left;
+  height: 28px;
+  margin-top: -14px;
+  cursor: default;
+}
+.jcrop_apply__complete__timer{
+  display: none;
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 14px;
+  text-align: left;
+  cursor: default;
+  white-space: nowrap;
+  line-height: 14px;
+}
+.jcrop_apply_wait .jcrop_apply__ready{
+  display: none;
+}
+.jcrop_apply_wait .jcrop_apply__wait{
+  display: inline-block;
+}
+.jcrop_apply_complete{
+  opacity: 1 !important;
+}
+.jcrop_apply_complete .jcrop_apply__complete,
+.jcrop_apply_complete .jcrop_apply__complete:after{
+  display: inline-block;
+}
+.jcrop_apply_complete .jcrop_apply_wait,
+.jcrop_apply_complete .jcrop_apply__ready{
+  display: none;
+}
+.jcrop_btn{
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+}
+#target{
+  max-width: 700px;
+  max-height: 700px;
+}

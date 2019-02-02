@@ -1,0 +1,46 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Test
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          test
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    skip: true
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        title: {label: Название}
+        value_first: {label: ''}
+        value_enum: {label: ''}
+        created_at: {label: ''}
+        updated_at: {label: ''}
+      list:
+        layout: ~
+        title: 'Тест'
+        display: [title]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [title]
+        export: false
+      filter:
+        class: TestFormFilter
+      form: ~
+      edit:
+        title: Редактирование 
+      new:
+        title: Новая
+      struct:
+        0: {label: 'Test', menu_label: 'Тест', table: 'Test'}
+        1: {label: 'Item', menu_label: 'Item', table: 'TestItem'}
+#        0: {label: 'Test', menu_label: 'Тест', table: 'Test', tabs: {0: 'Тест1', 1: 'Тест2'}}
+#        1: {label: 'Item', menu_label: 'Item', table: 'TestItem', tabs: {0: 'TestItem1', 1: 'TestItem2'}}

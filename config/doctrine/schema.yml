@@ -1,0 +1,137 @@
+Page:
+  actAs:
+    Timestampable: ~
+  columns:
+    title:
+      type: string(255)
+      notnull: true
+    alias:
+      type: string(255)
+      unique: true
+    body:
+      type: string(50000)
+    is_activated:
+      type: boolean
+      notnull: true
+      default: true
+
+Seo:
+  actAs:
+    Timestampable: ~
+  columns:
+    url:
+      type: string(10000)
+      notnull: true
+    h1:
+      type: string(10000)
+    title:
+      type: string(10000)
+    description:
+      type: string(10000)
+    body:
+      type: text
+
+RegList:
+  actAs:
+    Timestampable: ~
+  columns:
+    address:
+      type: string(255)
+      unique: true
+      notnull: true
+
+ServerList:
+  columns:
+    title:
+      type: string(255)
+      unique: true
+      notnull: true
+    ip_address:
+      type: string(255)
+      notnull: true
+      unique: true
+    comment:
+      type: string(10000)
+
+DomainList:
+  columns:
+    domain:
+      type: string(255)
+      unique: true
+      notnull: true
+    expires_at:
+      type: date
+    server:
+      type: string(255)
+    reg_id:
+      type: integer
+    client_id:
+      type: integer
+    sslexp:
+      type: datetime
+    last_check:
+      type: datetime
+  relations:
+    ClientList:
+      onDelete: SET NULL
+      local: client_id
+      foreign: id
+    RegList:
+      onDelete: CASCADE
+      local: reg_id
+      foreign: id
+
+HostingPlans:
+  columns:
+    name:
+      type: string(255)
+      notnull: true
+      unique: true
+    price:
+      type: float
+      notnull: true
+    description:
+      type: string(500)
+    memory:
+      type: string(255)
+      notnull: true
+    site_count:
+      type: integer
+      notnull: true
+    db_count:
+      type: integer
+      notnull: true
+
+ClientList:
+  columns:
+    is_paid:
+      type: boolean
+      notnull: true
+    paidtill:
+      type: date
+    name:
+      type: string(255)
+      notnull: true
+    email:
+      type: string(255)
+      unique: true
+    plan_id:
+      type: integer
+    period_id:
+      type: integer
+  relations:
+    Period:
+      onDelete: SET NULL
+      local: period_id
+      foreign: id
+    HostingPlans:
+      onDelete: SET NULL
+      local: plan_id
+      foreign: id
+
+Period:
+  columns:
+    title:
+      type: string(255)
+    period:
+      type: integer

@@ -1,0 +1,43 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           DomainList
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          domain_list
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        domain: {label: 'Домен'}
+        expires_at: {label: 'Оплачено до'}
+        server: {label: 'Сервер (IP)'}
+        something: {label: ''}
+        reg_id: {label: 'Регистратор'}
+        client_id:  {label: 'Почта владельца'}
+        sslexp: {label: 'Дни до окончания SSL сертификата'}
+        last_check: {label: 'Последняя проверка'}
+      list:
+        layout: ~
+        title: 'Домены'
+        display: [_domain, _client_id, _server, _reg_id, _expires_at, _sslexp, _last_check ]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [domain, server, client_id]
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование домена
+      new:
+        title: Новый домен

@@ -1,0 +1,49 @@
+check:
+  url:  /dom/check/:id/
+  class: sfDoctrineRoute
+  options: { model: dom, type: object }
+  param:   { module: dom, action: check }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+dom:
+  class:   sfDoctrineRouteCollection
+  options: { model: dom }
+
+show:
+  url:     /dom/:id
+  class:   sfDoctrineRoute
+  options: { model: dom, type: object }
+  param:   { module: dom, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+clients:
+  url:  /clients
+  class: sfDoctrineRoute
+  options: { model: clients, type: object }
+  param:   { module: clients, action: index }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+client_show:
+  class:   sfDoctrineRouteCollection
+  options: { model: clients }
+
+#show:
+#  url:   /zadanie/:name/:id
+#  param: { module: zadanie, action: show }
+
+homepage:
+  url: /
+  param: { module: clients, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

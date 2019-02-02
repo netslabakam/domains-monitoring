@@ -1,0 +1,16 @@
+/.idea
+/idea/
+/.ramcache
+/config/app.yml
+/config/databases.yml
+/config/properties.ini
+/config/rsync_exclude.txt
+/data/fixtures
+/data/version.txt
+/log
+/cache
+/upload
+/web/u
+/web/arm.php
+/web/index.php
+/symfony

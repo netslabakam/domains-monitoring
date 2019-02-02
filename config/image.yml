@@ -1,0 +1,38 @@
+all:
+#*пример для поля в таблице*
+#  TableName_field_name: *соблюдение регистра обязательно*
+#    sizes:
+#      min:
+#        width: 1000
+#        height: 300
+#      S:
+#        width: 100
+#        height: 100
+#        thumbstyle: scale
+#      FHD:
+#        width: 1920
+#        height: 1080
+#        thumbstyle: scale
+#*пример без подгрузки данных из таблицы*
+#  contact: *соблюдение регистра обязательно*
+#    sizes:
+#      min:
+#        width: 1000
+#        height: 500
+#      S:
+#        width: 270
+#        height: 170
+#        thumbstyle: center
+#      FHD:
+#        width: 1920
+#        height: 1080
+#        thumbstyle: scale
+  redactor:
+    sizes:
+      min:
+        width: 100
+        height: 100
+      FHD:
+        width: 1920
+        height: 1080
+        thumbstyle: scale

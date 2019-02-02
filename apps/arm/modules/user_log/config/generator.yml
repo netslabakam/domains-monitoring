@@ -1,0 +1,44 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           UserLog
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          user_log
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    order: 10000
+    skip: true
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        user_id: {label: 'Пользователь'}
+        user: {label: 'Пользователь'}
+        log_type: {label: 'Действие'}
+        model: {label: 'Объект'}
+        log: {label: 'Изменения'}
+        created_at: {label: 'Дата'}
+        updated_at: {label: ''}
+      list:
+        layout: ~
+        title: 'Журнал действий'
+        display: [user, log_type, model, _log, created_at]
+        max_per_page: 100
+        sort: [created_at, desc]
+        actions: ~
+        object_actions: ~
+        search:
+          fields: false
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Просмотр действия
+      new:
+        title: Добавление 

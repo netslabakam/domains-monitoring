@@ -1,0 +1,33 @@
+default:
+  http_metas:
+    content-type: text/html
+  stylesheets:
+    - 'arm/g.css?deploy=1526014609'
+    - 'arm/p.css?deploy=1526014609'
+    - chosen.css
+    - arm/redactor.css
+    - 'arm/atma-struct.css?deploy=1526014609'
+    - 'arm/atma-select.css?deploy=1526014609'
+    - atma-charts.css
+    - fotorama.css
+  javascripts:
+    - jquery-2.1.4.min.js
+    - 'arm/redactor.js?deploy=1526014609'
+    - jquery.idle.min.js
+    - arm/plugins.js
+    - perfect-scrollbar.min.js
+    - chosen.jquery.js
+    - arm/jquery.hideseek.js
+    - jquery.liteuploader.js
+    - sexypicker.js
+    - atmaUI.js
+    - stickyeah.js
+    - fotorama.js
+    - arm/jquery-ui.js
+    - arm/arm.js
+    - 'arm/atma-struct.js?deploy=1526014609'
+    - 'arm/atma-select.js?deploy=1526014609'
+    - atma-charts.js
+    - 'arm/init.d.js?deploy=1526014609'
+  has_layout: true
+  layout: layout

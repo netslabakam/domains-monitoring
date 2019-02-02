@@ -1,0 +1,14 @@
+default:
+  http_metas:
+    content-type: text/html
+  metas:
+    robots: 'index, follow'
+    viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'
+  stylesheets:
+    - 'g.css?deploy=1515592038'
+    - 'p.css?deploy=1515592038'
+  javascripts:
+    - 'jquery-1.10.2.min.js?deploy=1515592038'
+    - 'init.d.js?deploy=1515592038'
+  has_layout: true
+  layout: layout

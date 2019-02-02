@@ -1,0 +1,146 @@
+<?php
+
+/**
+ * PlugincsSetting form.
+ *
+ * @package    form
+ * @subpackage csSetting
+ * @version    SVN: $Id: sfDoctrineFormTemplate.php 6174 2007-11-27 06:22:40Z fabien $
+ */
+abstract class PlugincsSettingForm extends BasecsSettingForm
+{
+    public function getSettingWidget()
+    {
+        $type = $this->getObject()->getType();
+        $name = $this->getObject()->getName();
+
+        // See if there is a widget specific to this setting
+        $method = 'get' . sfInflector::camelize($name) . 'SettingWidget';
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+        // Else, see if there is a widget specific to this setting's type
+        $method = 'get' . sfInflector::camelize($type) . 'SettingWidget';
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+        // Return a generic Widget
+
+        return new sfWidgetFormInput(array('type' => $type), $this->getObject()->getOptionsArray());
+    }
+
+    public function getSettingValidator()
+    {
+        $type = $this->getObject()->getType();
+        $name = $this->getObject()->getName();
+        // See if there is a validator specific to this setting
+        $method = 'get' . sfInflector::camelize($name) . 'SettingValidator';
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+        // Else, see if there is a validator specific to this setting's type
+        $method = 'get' . sfInflector::camelize($type) . 'SettingValidator';
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+        // Return a generic Validator
+        return new sfValidatorString(array('required' => false));
+    }
+
+    public function getRichTextSettingWidget()
+    {
+        if (class_exists('sfWidgetFormCKEditor')) return new sfWidgetFormCKEditor(array(), $this->getObject()->getOptionsArray()); else
+            return new sfWidgetFormTextarea(array(), $this->getObject()->getOptionsArray());
+    }
+
+    //Type Textarea
+    public function getTextareaSettingWidget()
+    {
+        return new sfWidgetFormTextarea(array(), $this->getObject()->getOptionsArray());
+    }
+
+    // Type Checkbox
+    public function getCheckboxSettingWidget()
+    {
+        return new sfWidgetFormInputCheckbox(array(), $this->getObject()->getOptionsArray());
+    }
+
+    // Type Date
+    public function getDateTimeSettingWidget()
+    {
+        return new sfWidgetFormDateTime($this->getObject()->getOptionsArray());
+    }
+
+    public function getDateTimeSettingValidator()
+    {
+        return new sfValidatorDateTime(array('required' => false));
+    }
+
+    // Type Time
+    public function getTimeSettingWidget()
+    {
+        $options = $this->getObject()->getOptionsArray();
+
+        if ($default = $this->getObject()->getSettingDefault()) {
+            $default_arr = explode(':', $default);
+            if (count($default_arr) == 3) {
+                $options['empty_values'] = array('hour' => $default_arr[0], 'minute' => $default_arr[1], 'second' => $default_arr[2]);
+            }
+        }
+
+        return new sfWidgetFormTime($options);
+    }
+
+    public function getTimeSettingValidator()
+    {
+        return new sfValidatorTime(array('required' => true));
+    }
+
+    // Type Yesno
+    public function getYesnoSettingWidget()
+    {
+        return new sfWidgetFormSelectRadio(array('choices' => array('1' => 'Yes', '0' => 'No')), $this->getObject()->getOptionsArray());
+    }
+
+    public function getYesnoSettingValidator()
+    {
+        return new sfValidatorChoice(array('choices' => array('1', '0'), 'required' => false));
+    }
+
+    //Type Select List
+    public function getSelectSettingWidget()
+    {
+        return new sfWidgetFormSelect(array('choices' => $this->getObject()->getOptionsArray(), 'required' => false));
+    }
+
+    public function getSelectSettingValidator()
+    {
+        return new sfValidatorChoice(array('choices' => $this->getObject()->getOptionsArray(), 'required' => false));
+    }
+
+    //Type Model
+    public function getModelSettingWidget()
+    {
+        return new sfWidgetFormDoctrineChoice($this->getObject()->getOptionsArray());
+    }
+
+    public function getModelSettingValidator()
+    {
+        return new sfValidatorDoctrineChoice($this->getObject()->getOptionsArray());
+    }
+
+    //Type Upload
+    public function getUploadSettingWidget()
+    {
+        return new sfWidgetFormInputFileUpload($this->getObject()->getOptionsArray(), array('required' => false));
+    }
+
+    // Overriding Bind in this case allows us to have the form field "setting_group_new" for usability
+    public function bind(array $taintedValues = null, array $taintedFiles = null)
+    {
+        $taintedValues['setting_group'] = (isset($taintedValues['setting_group_new']) && $taintedValues['setting_group_new']) ? $taintedValues['setting_group_new'] : $taintedValues['setting_group'];
+        unset($taintedValues['setting_group_new']);
+        $ret = parent::bind($taintedValues, $taintedFiles);
+        return $ret;
+    }
+}

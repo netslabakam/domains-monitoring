@@ -1,0 +1,13 @@
+<?php
+$expires = $client_list->getPaidtill();
+if($expires){
+    $date = substr($expires, 0,10);
+
+    $date_now = date_create(date('Y-m-d'));
+    $date_db = date_create($date);
+
+    $date_diff = date_diff($date_now,$date_db);
+
+    $days = $date_diff->days;
+    echo $days;
+}

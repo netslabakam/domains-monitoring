@@ -1,0 +1,41 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ClientList
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          client_list
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        is_paid: {label: 'Оплачено'}
+        paidtill: {label: 'Оплачено до'}
+        paidtillc: {label: 'Осталось дней'}
+        name: {label: 'Имя'}
+        email: {label: 'Почта'}
+        plan_id: {label: 'Тариф'}
+      list:
+        layout: ~
+        title: 'Клиенты'
+        display: [name, _plan_id, email, _paidtillc, is_paid, period_id]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [name, email, plan_id]
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование клиента
+      new:
+        title: Новый клиент

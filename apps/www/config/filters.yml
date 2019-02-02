@@ -1,0 +1,10 @@
+seo:
+  class: seoFilter
+  param:
+    type: rendering
+rendering: ~
+security:  ~
+remember_me:
+  class: doAuthRememberMeFilter
+cache: ~
+execution: ~

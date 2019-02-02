@@ -1,0 +1,38 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ServerList
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          server_list
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        title: {label: 'Название сервера'}
+        ip_address: {label: 'IP адрес'}
+        comment: {label: 'Комментарий'}
+      list:
+        layout: ~
+        title: 'Наши сервера'
+        display: [title,ip_address,comment]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [title, ip_address]
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование сервера
+      new:
+        title: Новый сервер

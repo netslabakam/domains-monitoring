@@ -1,0 +1,43 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           UserGroup
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          user_group
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    order: 7020
+    skip: true
+
+
+    config:
+      actions: ~
+      fields:
+        id: {label: 'ID'}
+        title: {label: Название}
+        created_at: {label: ''}
+        updated_at: {label: ''}
+        user_list: {label: 'Состав группы'}
+        user_group_users_list: {label: 'Состав группы'}
+        
+      list:
+        layout: ~
+        title: 'Группы пользователей'
+        display: [title, _user_list]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование группы
+      new:
+        title: Добавление группы пользователей

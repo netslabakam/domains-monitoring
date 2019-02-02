@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           reglist
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          reglist
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        address: {label: 'Регистратор'}
+      list:
+        layout: ~
+        title: 'Регистраторы'
+        display: [address]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [address]
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование регистратора
+      new:
+        title: Новый регистратор

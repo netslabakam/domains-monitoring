@@ -1,0 +1,41 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           HostingPlans
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          hosting_plans
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: {label: ''}
+        name: {label: 'Название'}
+        price: {label: 'Цена'}
+        memory: {label: 'Память'}
+        site_count: {label: 'Количество сайтов'}
+        db_count: {label: 'Количество баз данных'}
+        description: {label: 'Комментарий'}
+      list:
+        layout: ~
+        title: 'Тарифы'
+        display: [name, memory, site_count, db_count, _price]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [name]
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование тарифа
+      new:
+        title: Новый тариф

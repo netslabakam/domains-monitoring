@@ -1,0 +1,44 @@
+/*
+ * atmacharts
+ * version 0.0.1
+ * by https://atma.company
+*/
+
+.aCharts_wrap{
+    display: inline-block;
+    width: inherit;
+    position: relative;
+    vertical-align: middle;
+}
+.aCharts_wrap .aCharts_line{
+    min-width: 200px;
+}
+.aCharts_line{
+    display: block;
+    width: 0;
+    height: 7px;
+    border-radius: 4px;
+    position: relative;
+    /*overflow: hidden;*/
+}
+.aCharts_line__percent{
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    border-radius: 4px;
+    transition: width 200ms;
+}
+.aCharts_line__mark{
+    position: absolute;
+    top: -4px;
+    height: 16px;
+    width: 1px;
+}
+
+.aCharts__title{
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+.aCharts__title span{
+    float: right;
+}

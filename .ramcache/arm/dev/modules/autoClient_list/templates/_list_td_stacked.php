@@ -1,0 +1,3 @@
+<td colspan="6">
+  <?php echo __('%%name%% - %%plan_id%% - %%email%% - %%paidtillc%% - %%is_paid%% - %%period_id%%', array('%%name%%' => $client_list->getName(), '%%plan_id%%' => get_partial('client_list/plan_id', array('type' => 'list', 'client_list' => $client_list)), '%%email%%' => $client_list->getEmail(), '%%paidtillc%%' => get_partial('client_list/paidtillc', array('type' => 'list', 'client_list' => $client_list)), '%%is_paid%%' => get_partial('client_list/list_field_boolean', array('value' => $client_list->getIsPaid())), '%%period_id%%' => $client_list->getPeriodId()), 'messages') ?>
+</td>

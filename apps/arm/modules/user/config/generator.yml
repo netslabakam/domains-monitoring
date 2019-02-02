@@ -1,0 +1,53 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           User
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          user
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    order: 7010
+    skip: true
+
+    config:
+      actions: ~
+      fields:
+        id: {label: 'ID'}
+        username: {label: 'Логин'}
+        fname: {label: 'Фамилия'}
+        iname: {label: 'Имя'}
+        oname: {label: 'Отчество'}
+        email: {label: 'Эл. почта'}
+        salt: {label: ''}
+        partner_id: {label: 'Партнёр'}
+        password: {label: 'Пароль'}
+        is_active: {label: 'Активирован'}
+        status: {label: 'Статус'}
+        block_reason: {label: 'Причина блокировки'}
+        is_super_admin: {label: 'Доступ в АРМ'}
+        last_login: {label: 'Последний визит'}
+        created_at: {label: 'Дата регистрации'}
+        updated_at: {label: ''}
+        user_group_list: {label: 'Группа'}
+      list:
+        layout: ~
+        title: 'Учётные записи'
+        display: [username, email, last_login, created_at, is_active]
+        max_per_page: 100
+        object_actions:
+          _delete: ~
+          _edit: ~
+        search:
+          fields: [username, email]
+        export: false
+      filter:
+        class: false
+      form: ~
+      edit:
+        title: Редактирование учётной записи
+      new:
+        title: Новая учётная запись

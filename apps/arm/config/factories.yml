@@ -1,0 +1,40 @@
+prod:
+  logger:
+    class: sfNoLogger
+    param:
+      level: err
+      loggers: ~
+
+all:
+  storage:
+    param:
+      session_name: arm
+#  mailer:
+#    param:
+#      delivery_strategy: realtime
+#      transport:
+#        class: Swift_MailTransport
+  mailer:
+    param:
+      spool_class: Swift_FileSpool
+      spool_arguments: [/www/fh.local/log]
+      delivery_strategy: realtime
+      transport:
+        class: Swift_SmtpTransport
+        param:
+          host: smtp.yandex.ru
+          port: 465
+          encryption: ssl
+          username: umurzakov.farruh@yandex.ru
+          password: forproject
+  routing:
+    class: sfPatternRouting
+    param:
+      generate_shortest_url: true
+      extra_parameters_as_query_string: true
+      lazy_routes_deserialize: true
+  view_cache_manager:
+    class: sfViewCacheManager
+    param:
+      cache_key_use_vary_headers: true
+      cache_key_use_host_name: true

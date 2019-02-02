@@ -1,0 +1,160 @@
+period:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Period
+    module:               period
+    prefix_path:          /period
+    column:               id
+    with_wildcard_routes: true
+
+hosting_plans:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                HostingPlans
+    module:               hosting_plans
+    prefix_path:          /hosting_plans
+    column:               id
+    with_wildcard_routes: true
+
+client_list:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ClientList
+    module:               client_list
+    prefix_path:          /client_list
+    column:               id
+    with_wildcard_routes: true
+
+reglist:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                reglist
+    module:               reglist
+    prefix_path:          /reglist
+    column:               id
+    with_wildcard_routes: true
+
+domain_list:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DomainList
+    module:               domain_list
+    prefix_path:          /domain_list
+    column:               id
+    with_wildcard_routes: true
+
+
+server_list:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ServerList
+    module:               server_list
+    prefix_path:          /server_list
+    column:               id
+    with_wildcard_routes: true
+
+test_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TestItem
+    module:               test_item
+    prefix_path:          /test_item
+    column:               id
+    with_wildcard_routes: true
+
+test:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Test
+    module:               test
+    prefix_path:          /test
+    column:               id
+    with_wildcard_routes: true
+
+seo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Seo
+    module:               seo
+    prefix_path:          /seo
+    column:               id
+    with_wildcard_routes: true
+
+user_log:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                UserLog
+    module:               user_log
+    prefix_path:          /user_log
+    column:               id
+    with_wildcard_routes: true
+
+user_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                UserGroup
+    module:               user_group
+    prefix_path:          /user_group
+    column:               id
+    with_wildcard_routes: true
+user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                User
+    module:               user
+    prefix_path:          /user
+    column:               id
+    with_wildcard_routes: true
+
+permission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Permission
+    module:               permission
+    prefix_path:          /permission
+    column:               id
+    with_wildcard_routes: true
+
+page:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Page
+    module:               page
+    prefix_path:          /page
+    column:               id
+    with_wildcard_routes: true
+
+uploader:
+  url: /uploader
+  param: { module: page, action: upload }
+
+jcrop:
+  url: /jcrop
+  param: { module: page, action: jcrop }
+  
+signin:
+  url: /login
+  param: { module: baseAuth, action: signin }
+
+signout:
+  url: /logout
+  param: { module: baseAuth, action: signout }
+
+profile:
+  url: /profile
+  param: { module: main, action: profile }
+
+version:
+  url: /version
+  param: { module: main, action: version }
+
+homepage:
+  url:   /
+  param: { module: main, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+  
+default:
+  url:   /:module/:action/*

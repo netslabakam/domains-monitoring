@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Page
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          page
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    order: 1000
+    skip: true
+
+    config:
+      actions: ~
+      fields:
+        title: {label: Заголовок}
+        body: {label: Текст страницы}
+        is_activated: {label: Опубликована}
+        alias: {label: Алиас}
+      list:
+        layout: ~
+        title: Страницы
+        display: [=title, is_activated]
+        params: |
+          %%%% %%title%%
+        max_per_page: 30
+        object_actions:
+          _delete: ~
+          _edit: ~
+      filter:
+        class: false
+      form:    ~
+      edit:
+        title: Редактирование страницы
+      new:
+        title: Новая страница
